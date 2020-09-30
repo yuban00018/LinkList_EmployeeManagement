@@ -1,10 +1,14 @@
 # OOPAssignment
-2020秋-面向对象程序设计A 小组作业
-# 主要贡献者（排名不分先后）
-[Zhou ZheYuan](https://github.com/lonely-square)
+2020fall-OOP(A) team project（LinkList)
 
-[Yan Yuntian](https://github.com/Henry-Avery)
+# ATTENTION
+Please Obey Google Style Guide.
 
+# CONTRIBUTOR(in no particular order)
 [Cao Zhuowen](https://github.com/yuban00018)
 
 [Xu Rui](https://github.com/DDTQ-1228)
+
+[Yan Yuntian](https://github.com/Henry-Avery)
+
+[Zhou ZheYuan](https://github.com/lonely-square)

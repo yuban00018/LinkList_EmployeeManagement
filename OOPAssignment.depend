@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1601450563 source:d:\hub\oopassignment\employee.cpp
+	"employee.h"
+
+1601450996 d:\hub\oopassignment\employee.h
+	<iostream>
+	<string>
+
+1601456412 source:d:\hub\oopassignment\department.cpp
+	"employee.h"
+	"department.h"
+
+1601455951 d:\hub\oopassignment\department.h
+	<iostream>
+	<string>
+	<string.h>
+	"employee.h"
+	"LinkList.h"
+
+1601458593 d:\hub\oopassignment\linklist.h
+	<iostream>
+	<fstream>
+	<cstdlib>
+
+1601457104 source:d:\hub\oopassignment\test.cpp
+	<iostream>
+	<string>
+	<typeinfo>
+	"department.h"
+	"employee.h"
+	"LinkList.h"
+
