@@ -1,0 +1,8 @@
+/.*/
+/*.exe
+/Debug/
+/*.sln
+/*.vcxproj*
+/*.cbp
+/bin/
+/obj/
