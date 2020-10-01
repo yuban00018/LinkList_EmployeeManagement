@@ -1,0 +1,11 @@
+/.*/
+/*.exe
+/Debug/
+/*.sln
+/*.vcxproj*
+/*.cbp
+/*.layout
+/bin/
+/obj/
+*.depend
+*.mdsp
