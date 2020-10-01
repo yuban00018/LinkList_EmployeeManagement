@@ -12,3 +12,5 @@ Please Obey Google Style Guide.
 [Yan Yuntian](https://github.com/Henry-Avery)
 
 [Zhou ZheYuan](https://github.com/lonely-square)
+
+[Duan Yu](https://github.com/Qeac)
