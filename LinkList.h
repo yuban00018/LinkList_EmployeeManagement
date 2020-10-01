@@ -19,7 +19,7 @@ public:
 		data = node.data;				// ½áµã¼ä¸³ÖµÊ±£¬½ö¸Ä±äÊý¾ÝÓò£¬²»¸Ä±äÁ´½Ó·½Ê½
 		return *this;
 	}
-	friend ostream &operator<<(ostream &out,const Node<T> &node)
+	friend ostream &operator<<(ostream &out,const Node<T> &node)// overloaded by CAO ZHUOWEN
 	{
 		if(&node==NULL){out<<"NULL";return out;}
 		out<<node.data;
@@ -392,14 +392,12 @@ Node<T> *LinkList<T>::Locate(const TYPE &x, bool newsearch) // µ±Ç°½áµãÒÀÌõ¼þ£¨¸
 		p = head;
 		data = x;
 	}
-	// for(; p!=NULL && TYPE(p->data)!=TYPE(data); p=p->next)	// forÑ­»·µÄ±í´ïÊ½1Îª¿Õ£º´ÓÁ´±íµÄ"µ±Ç°"½áµãÆð¼ÌÐø²éÕÒ
-	// 	;													// TYPE()ÎªÀàÐÍÇ¿ÖÆ×ª»»ÔËËã·û
-	for(; p!=NULL && p->data!=data; p=p->next)	// forÑ­»·µÄ±í´ïÊ½1Îª¿Õ£º´ÓÁ´±íµÄ"µ±Ç°"½áµãÆð¼ÌÐø²éÕÒ
-		;	
+	 for(; p!=NULL && TYPE(p->data)!=TYPE(data); p=p->next)	// forÑ­»·µÄ±í´ïÊ½1Îª¿Õ£º´ÓÁ´±íµÄ"µ±Ç°"½áµãÆð¼ÌÐø²éÕÒ
+	 	;													// TYPE()ÎªÀàÐÍÇ¿ÖÆ×ª»»ÔËËã·û
 	cur_node = p;
 	if(p!=NULL)		// Èç¹ûÕÒµ½£¬ÔÚ·µ»ØÕÒµ½µÄ½áµãµØÖ·£¨cur_node£©Ö®Ç°£¬p"ÇÄÇÄ"µØÏòÇ°×ßÒ»²½£¬Îª¼ÌÐø²éÕÒ×öºÃ×¼±¸
 		p = p->next;
-	return cur_node;
+	return cur_node; //return the address of cur_node,so *Locate will show the data of cur_node.
 }
 
 template <typename T> template <typename TYPE>

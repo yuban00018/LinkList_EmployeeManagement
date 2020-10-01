@@ -18,12 +18,9 @@ int main()
         departments.CurData().add_employee(new_employee); //add employee
     }
     departments.CurData().set_department_info("technic support", 25000);
-    char *search1 = "technic supports";
-    departments.Locate(search1, true);
+    string search1 = "technic supports";
+    departments.Locate(search1, true);//never use Locate(char*,true);
+    departments.CurData().delete_employee_by_id(0);
     cout<<departments.CurData();
-    //  departments.ShowList();
-    //cout << departments.CurData();                    //Show department detail
-    //delete employee
-    //delete de
     return 0;
 }
