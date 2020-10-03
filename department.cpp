@@ -16,6 +16,7 @@ Department &Department::operator=(Department department)
     department_name_ = department.department_name_;
     budget_ = department.budget_;
     number_of_employees_ = department.number_of_employees_;
+    return *this;
 }
 bool Department::delete_employee_by_id(int employee_id)
 {
