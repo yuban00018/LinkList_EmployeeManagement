@@ -10,6 +10,7 @@ void Create_new_employee(LinkList<Department> &departments); //´´½¨Ò»¸öemployÇÒ³
 void Add_information_to_department(LinkList<Department> &departments); //¸ødepartment¸³Öµ 
 int main()
 {
+    double SortByBudget = 1.0;//use variable instead of magic number
     LinkList<Department> departments;
     
     for (int i = 0; i < 5; i++)
@@ -27,7 +28,7 @@ int main()
         departments.CurData().SortByEmployeeSalary();
     }
     departments.ShowList();
-    departments.Sort(1.0); //°´²¿ÃÅÔ¤ËãÎª²¿ÃÅÁ´±íÅÅÐò 
+    departments.Sort(SortByBudget);
     cout << "==============This is a split line==============" << endl; 
     departments.ShowList();
     
