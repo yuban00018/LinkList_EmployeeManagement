@@ -1,5 +1,6 @@
 #include "employee.h"
 #include "department.h"
+double SortBySalary = 1.0;
 void Department::add_employee(const Employee &new_employee)
 {
     number_of_employees_++;
@@ -19,5 +20,5 @@ Department &Department::operator=(Department department)
 }
 void Department::SortByEmployeeSalary()
 {
-	employees_link_.Sort((double)1.0);
+	employees_link_.Sort(SortBySalary);
 }
