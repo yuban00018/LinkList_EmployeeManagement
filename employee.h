@@ -21,6 +21,7 @@ public:
                                   rate_(rate) {}
     operator string(){return name_;}
     operator int(){return id_;}
+    operator double(){return salary_;}
     inline friend ostream &operator<<(ostream &out, Employee person)
     {
         out << "ID: " << person.id_ << endl
