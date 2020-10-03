@@ -12,7 +12,6 @@ class Department
 {
 public:
     // not finished
-    void delete_employee_by_name(string employee_name);//please refer to delete_employee_by_id
     double ShowTotalBudget();
     void SortByBudget();
     void move_employee(string from_department_name, int employee_id, string to_department_name);
@@ -21,7 +20,17 @@ public:
                                                                         budget_(budget) {}
     void add_employee(const Employee &new_employee);
     void set_department_info(string name = "NO_DEPARTMENT_NAME", int budget = 0);
-    bool delete_employee_by_id(int employee_id);
+    template <typename T>
+    bool delete_employee(T employee_identity)
+    {
+        if (employees_link_.Locate(employee_identity) != NULL) // now the CurNode is what we want
+        {
+            employees_link_.DeleteCurNode();
+            return true;
+        }
+        else
+            return false;
+    }
 
     //Type Cast
     operator string() { return department_name_; }
