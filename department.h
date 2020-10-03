@@ -13,7 +13,7 @@ class Department
 public:
     // not finished
     double ShowTotalBudget();
-    void SortByBudget();
+    void SortByEmployeeSalary();
     void move_employee(string from_department_name, int employee_id, string to_department_name);
 
     Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),
