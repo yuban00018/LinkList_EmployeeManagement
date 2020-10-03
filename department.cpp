@@ -16,15 +16,4 @@ Department &Department::operator=(Department department)
     department_name_ = department.department_name_;
     budget_ = department.budget_;
     number_of_employees_ = department.number_of_employees_;
-    return *this;
-}
-bool Department::delete_employee_by_id(int employee_id)
-{
-    if (employees_link_.Locate(employee_id) != NULL) // now the CurNode is what we want
-    {
-        employees_link_.DeleteCurNode();
-        return true;
-    }
-    else
-        return false;
 }
