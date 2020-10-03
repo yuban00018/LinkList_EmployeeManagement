@@ -17,3 +17,7 @@ Department &Department::operator=(Department department)
     budget_ = department.budget_;
     number_of_employees_ = department.number_of_employees_;
 }
+void Department::SortByEmployeeSalary()
+{
+	employees_link_.Sort((double)1.0);
+}
