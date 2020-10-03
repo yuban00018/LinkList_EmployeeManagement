@@ -11,6 +11,7 @@ void Add_information_to_department(LinkList<Department> &departments); //给depar
 int main()
 {
     double SortByBudget = 1.0;//use variable instead of magic number
+    double SortBySalary = 1.0;//use variable instead of magic number
     LinkList<Department> departments;
     
     for (int i = 0; i < 5; i++)
@@ -25,7 +26,7 @@ int main()
         Create_new_employee(departments);
 		Create_new_employee(departments);
 		Create_new_employee(departments); //创建三个employ测试 SortByEmployeeSalary()函数 
-        departments.CurData().SortByEmployeeSalary();
+        departments.CurData().SortEmployee(SortBySalary);//sort by salary
     }
     departments.ShowList();
     departments.Sort(SortByBudget);
