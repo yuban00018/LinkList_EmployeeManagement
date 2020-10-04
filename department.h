@@ -12,14 +12,16 @@ class Department
 {
 public:
     // not finished
-    double ShowTotalBudget();
-    void SortByBudget();
-    void move_employee(string from_department_name, int employee_id, string to_department_name);
 
     Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),
                                                                         budget_(budget) {}
     void add_employee(const Employee &new_employee);
     void set_department_info(string name = "NO_DEPARTMENT_NAME", int budget = 0);
+    template <typename T>
+    void SortEmployee(T method)
+    {
+        employees_link_.Sort(method);
+    }
     template <typename T>
     bool delete_employee(T employee_identity)
     {
@@ -46,7 +48,7 @@ public:
     }
 
 private:
-    static int number_of_departments_;
+    static int number_of_departments_; //use LinkList::NumNodes() instead?
     string department_name_;
     LinkList<Employee> employees_link_;
     double budget_;
