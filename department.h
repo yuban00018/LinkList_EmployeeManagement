@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include <iomanip>
 #include "employee.h"
 #include "LinkList.h"
 using namespace std;
@@ -12,8 +13,10 @@ class Department
 {
 public:
     // not finished
+    int CheckOverBudget();
+    int GetTotalSalaries();
 
-    Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),
+    Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),number_of_employees_(0),
                                                                         budget_(budget) {}
     void add_employee(const Employee &new_employee);
     void set_department_info(string name = "NO_DEPARTMENT_NAME", int budget = 0);
@@ -33,6 +36,13 @@ public:
         else
             return false;
     }
+    void ShowEmployees()
+    {
+        cout<<setw(10)<<"Name"<<setw(10)<<"ID"<<setw(25)<<"Position"<<setw(10)<<"Work Hour"<<setw(10)<<"Salary"<<endl;
+        cout<<employees_link_;
+    }
+    LinkList<Employee> &GetEmployees(){return employees_link_;}
+    
 
     //Type Cast
     operator string() { return department_name_; }
@@ -42,8 +52,7 @@ public:
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
     {
-        out << "DEPARTMENT: " << department.department_name_ << "\nEMPLOYEES: ";
-        department.employees_link_.PutList(out); //shows employees information, operator << got overloaded in employee.h
+        out<<setw(25)<<department.department_name_<<setw(20)<<department.number_of_employees_<<setw(10)<<department.budget_;
         return out;
     }
 
