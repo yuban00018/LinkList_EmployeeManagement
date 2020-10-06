@@ -16,7 +16,7 @@ public:
     int CheckOverBudget();
     int GetTotalSalaries();
 
-    Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),number_of_employees_(0),
+    Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name), number_of_employees_(0),
                                                                         budget_(budget) {}
     void add_employee(const Employee &new_employee);
     void set_department_info(string name = "NO_DEPARTMENT_NAME", int budget = 0);
@@ -38,11 +38,11 @@ public:
     }
     void ShowEmployees()
     {
-        cout<<setw(10)<<"Name"<<setw(10)<<"ID"<<setw(25)<<"Position"<<setw(10)<<"Work Hour"<<setw(10)<<"Salary"<<endl;
-        cout<<employees_link_;
+        cout << setw(10) << "Name" << setw(10) << "ID" << setw(25) << "Position" << setw(10) << "Work Hour" << setw(10) << "Salary" << endl;
+        cout << employees_link_;
     }
-    LinkList<Employee> &GetEmployees(){return employees_link_;}
-    
+    LinkList<Employee> &GetEmployees() { return employees_link_; }
+    string GetDepartmentName() const { return department_name_; }
 
     //Type Cast
     operator string() { return department_name_; }
@@ -52,7 +52,7 @@ public:
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
     {
-        out<<setw(25)<<department.department_name_<<setw(20)<<department.number_of_employees_<<setw(10)<<department.budget_;
+        out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ << setw(10) << department.budget_;
         return out;
     }
 

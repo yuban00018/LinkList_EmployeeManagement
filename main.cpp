@@ -11,6 +11,12 @@ void help2();
 void EmployeeManage(Department &department);
 void DepartmentManage(LinkList<Department> &departments);
 
+string ByName = "";
+double ByBudget = 0.0;
+int ByEmployeesNumber = 0;
+int ByEmployeeId = 0;
+double BySalary = 0.0;
+
 int main()
 {
     LinkList<Department> departments;
@@ -35,7 +41,7 @@ int main()
         else if (choice == 'n' || choice == 'N')
             break;
     }
-    DepartmentManage(departments);//main part
+    DepartmentManage(departments); //main part
     while (true)
     {
         cout << "Save to the data base (Y/N)";
@@ -50,15 +56,16 @@ int main()
     }
 }
 
-void help1(){ //ABCDEFGHIGKLMNOPQRSTUVWXYZ
+void help1()
+{ //ABCDEFGHIGKLMNOPQRSTUVWXYZ
     system("cls");
     cout << "A - Add a new department" << endl;
     cout << "C (name) (newname) (budget) - Change department infomation" << endl;
     cout << "D (name) - Delete department" << endl;
-    cout << "M (id) (from) (to) - Move employee" << endl;//没有完成函数定义
-    cout << "O - Check which department over budget" << endl;//没有函数声明与定义
+    cout << "M (id) (from) (to) - Move employee" << endl;     //没有完成函数定义
+    cout << "O - Check which department over budget" << endl; //没有函数声明与定义
     cout << "Q - Quit" << endl;
-    cout << "S (method) - Sort department by certain rule" << endl;//没有声明与定义
+    cout << "S (method) - Sort department by certain rule" << endl; //没有声明与定义
     cout << "V (name) - View further details of department" << endl;
     cout << endl;
 }
@@ -122,82 +129,113 @@ void DepartmentManage(LinkList<Department> &departments)
                 EmployeeManage(departments.CurData());
             }
         }
-        else if(command == 'C'|| command =='c')
+        else if (command == 'C' || command == 'c')
         {
             string name;
-            cin>> name;
-            Node<Department>*p=departments.Locate(name,true);
-            if(p == NULL)
+            cin >> name;
+            Node<Department> *p = departments.Locate(name, true);
+            if (p == NULL)
             {
-                cout<<"Not found!"<<endl
-                     <<endl;
+                string temp1;
+                int temp2;
+                cin >> temp1 >> temp2;
+                cout << "Not found!" << endl
+                     << endl;
             }
             else
             {
-                departments.CurData().ChangeDepartmentInformation();
-                DepartmentManage(departments.CurData());
+                string new_name;
+                int new_budget;
+                cin >> new_name >> new_budget;
+                departments.CurData().set_department_info(new_name, new_budget);
             }
         }
-        else if (command == 'A'|| command =='a')
+        else if (command == 'A' || command == 'a')
         {
             string name;
-            cin>>name;
-            Node<Department>*p=departments.Locate(name,true);
-            if(p == NULL)
+            cin >> name;
+            Node<Department> *p = departments.Locate(name, true);
+            if (p == NULL)
             {
-                departments.Curdata().AddNewDepartment();
-                DepartmentManage(departments.CurData());
+                double budget;
+                cin >> budget;
+                Department new_department(name, budget);
+                departments.Append(new_department);
             }
             else
             {
-                cout<<"There are already duplicated departments!"<<endl
-                     <<endl;
+                double temp;
+                cin >> temp;
+                cout << "There are already duplicated departments!" << endl
+                     << endl;
             }
-
         }
-        else if (command == 'D'|| command =='d')
+        else if (command == 'D' || command == 'd')
         {
             string name;
-            cin>>name;
-            Node<Department>*p=departments.Locate(name,true);
-            if(p == NULL)
+            cin >> name;
+            Node<Department> *p = departments.Locate(name, true);
+            if (p == NULL)
             {
-                cout<<"Not found!"<<endl
-                     <<endl;
+                cout << "Not found!" << endl
+                     << endl;
             }
             else
             {
-                departments.CurData().DeleteDepartment();
-                DepartmentManage(departments.CurData());
+                int method;
+                cin >> method;
+                switch (method)
+                {
+                case 1:
+                    delete_department(ByName);
+                    break;
+                case 2:
+                    delete_department(ByEmployeesNumber);
+                case 3:
+                    delete_department(ByBudget);
+                default:
+                    break;
+                }
             }
         }
-        else if (command == 'M'|| command =='m')
+        else if (command == 'M' || command == 'm')
         {
             string name;
-            cin>>name;
-            Node<Department>*p=departments.Locate(name,true);
-            if(p == NULL)
+            cin >> name;
+            Node<Department> *p = departments.Locate(name, true);
+            if (p == NULL)
             {
-                cout<<"Not found!"<<endl
-                     <<endl;
+                cout << "Not found!" << endl
+                     << endl;
             }
             else
             {
-                departments.CurData().MoveEmployee();
-                EmployeeManage(departments.CurData());
+                //MoveEmployee();
             }
         }
-        else if (command == 'O'|| command =='o')
+        else if (command == 'O' || command == 'o')
         {
-            departments.CurData().CheckDepartmentBudget();
-            DepartmentManage(departments.CurData());
+            //departments.CurData().CheckOverBudget();
         }
-        else if (command == 'S'|| command =='s')
+        else if (command == 'S' || command == 's')
         {
-            departments.CurData().SortDepartment();
-            DepartmentManage(departments.CurData());
+            int method;
+            cin >> method;
+            switch (method)
+            {
+            case 1:
+                SortDepartment(ByName);
+                break;
+            case 2:
+                SortDepartment(ByEmployeesNumber);
+                break;
+            case 3:
+                SortDepartment(ByBudget);
+            default:
+                break;
+            }
         }
-        else if (command == 'Q'|| command =='q')
+        else if (command == 'Q' || command == 'q')
             return;
         system("pause");
         system("cls");

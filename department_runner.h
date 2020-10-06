@@ -27,7 +27,7 @@ void Save(LinkList<Department> departments)
         departments.GoTop();
         Node<Department> *flag = departments.CurNode();
         int number_of_departments = departments.NumNodes();
-        for (int i = 0; i < number_of_departments; i++)
+        for (int i = 1; i < number_of_departments; i++)
         {
             out << departments.CurData().GetEmployees();
             departments.Go(i);
