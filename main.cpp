@@ -109,7 +109,7 @@ void DepartmentManage(LinkList<Department> &departments)
         cout << "\n=========================================================" << endl;
         ShowDepartments(departments);
         cout << "\n=========================================================" << endl;
-        cout << "Command(H or HH for help): ";
+        cout << "Command(H for help): ";
         char command;
         cin >> command;
         if (command == 'H' || command == 'h')
