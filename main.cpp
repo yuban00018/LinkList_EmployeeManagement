@@ -94,89 +94,9 @@ void EmployeeManage(Department &department)
         cout << "Command(H for help): ";
         char command;
         cin >> command;
-        if ( command == 'H' || command == 'h')
+        if (command == 'H' || command == 'h')
             help2();
-        else if ( command == 'A' || command == 'a')
-        {
-            int employee_identity;
-            cin >> employee_identity;
-            Node<Employee> *p = employee.Locate(employee_identity, true);
-            if (p == NULL)
-            {
-                string name;
-                double salary;
-                int work_hour;
-                string position;
-                double rate;
-                cin >> employee_identity>> name>> salary>> work_hour>> position>> rate;
-                Employee new_employee(employee_identity, name, salary, work_hour. position, rate);
-                departments.CurData().add_employee(new_employee);
-            }
-            else
-            {
-                double temp;
-                cin >> temp;
-                cout << "There are already duplicated employees!" << endl
-                     << endl;
-        }
-        else if (command == 'D' || command == 'd')
-        {
-            int employee_identity;
-            cin >> employee_identity;
-            Node<Employee> *p = employee.Locate(employee_identity, true);
-            if (p == NULL)
-            {
-                cout << "Not found!" << endl
-                     << endl;
-            }
-            else
-            {
-                int method;
-                cin >> method;
-                switch (method)
-                {
-                case 1:
-                    delete_employee(ByID);
-                    break;
-                case 2:
-                    delete_employee(ByName);
-                case 3:
-                    delete_employee(BySalary);
-                case 4:
-                    delete_employee(ByWork_hour);
-                case 5:
-                    delete_employee(ByPosition);
-                case 6:
-                    delete_employee(ByRate);
-                default:
-                    break;
-                }
-            }
-        }
-        else if (command == 'S' || command == 's')
-        {
-            int method;
-                cin >> method;
-                switch (method)
-                {
-                case 1:
-                    SortEmployees(ByID);
-                    break;
-                case 2:
-                    SortEmployees(ByName);
-                case 3:
-                    SortEmployees(BySalary);
-                case 4:
-                    SortEmployees(ByWork_hour);
-                case 5:
-                    SortEmployees(ByPosition);
-                case 6:
-                    SortEmployees(ByRate);
-                default:
-                    break;
-                }
-        }
-        else if (command == 'Q' || command == 'q')
+        if (command == 'Q' || command == 'q')
             return;
         system("pause");
         system("cls");
