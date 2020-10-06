@@ -5,39 +5,63 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include <iomanip>
 #include "employee.h"
 #include "LinkList.h"
 using namespace std;
+
 class Department
 {
 public:
     // not finished
-    void delete_employee_by_name(string employee_name);//please refer to delete_employee_by_id
-    double ShowTotalBudget();
-    void SortByBudget();
-    void move_employee(string from_department_name, int employee_id, string to_department_name);
+    int CheckOverBudget();
+    int GetTotalSalaries();
 
-    Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),
+    Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name),number_of_employees_(0),
                                                                         budget_(budget) {}
     void add_employee(const Employee &new_employee);
     void set_department_info(string name = "NO_DEPARTMENT_NAME", int budget = 0);
-    bool delete_employee_by_id(int employee_id);
+    template <typename T>
+    void SortEmployee(T method)
+    {
+        employees_link_.Sort(method);
+    }
+    template <typename T>
+    bool delete_employee(T employee_identity)
+    {
+        if (employees_link_.Locate(employee_identity) != NULL) // now the CurNode is what we want
+        {
+            employees_link_.DeleteCurNode();
+            return true;
+        }
+        else
+            return false;
+    }
+
+    void ShowEmployees()
+    {
+        cout<<setw(10)<<"Name"<<setw(10)<<"ID"<<setw(25)<<"Position"<<setw(10)<<"Work Hour"<<setw(10)<<"Salary"<<endl;
+        cout<<employees_link_;
+    }
+
+    LinkList<Employee> &GetEmployees(){return employees_link_;}
+    
 
     //Type Cast
     operator string() { return department_name_; }
     operator double() { return budget_; }
     operator int() { return number_of_employees_; }
+
     //Overload
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
     {
-        out << "DEPARTMENT: " << department.department_name_ << "\nEMPLOYEES: ";
-        department.employees_link_.PutList(out); //shows employees information, operator << got overloaded in employee.h
+        out<<setw(25)<<department.department_name_<<setw(20)<<department.number_of_employees_<<setw(10)<<department.budget_;
         return out;
     }
 
 private:
-    static int number_of_departments_;
+    static int number_of_departments_; //use LinkList::NumNodes() instead?
     string department_name_;
     LinkList<Employee> employees_link_;
     double budget_;

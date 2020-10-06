@@ -3,6 +3,7 @@
 #define EMPLOYEE_H
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 class Employee
@@ -19,15 +20,17 @@ public:
                                   work_hour_(work_hour),
                                   position_(position),
                                   rate_(rate) {}
-    operator string(){return name_;}
-    operator int(){return id_;}
+    operator string() { return name_; }
+    operator int() { return id_; }
+    operator double() { return salary_; }
     inline friend ostream &operator<<(ostream &out, Employee person)
     {
-        out << "ID: " << person.id_ << endl
-            << "NAME: " << person.name_ << endl
-            << "SALARY: " << person.salary_ << endl
-            << "WORK_HOUR: " << person.work_hour_ << endl;
+        out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ << setw(10) << person.work_hour_ << setw(10) << person.salary_;
         return out;
+    }
+    void set_rate(double rate)
+    {
+        rate_ = rate;
     }
     friend class Department;
 

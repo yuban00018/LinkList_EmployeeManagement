@@ -9,3 +9,5 @@
 /obj/
 *.depend
 *.mdsp
+.gitignore
+DataBase.txt
