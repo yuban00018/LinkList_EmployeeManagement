@@ -18,7 +18,7 @@ void dedelete_department(T &departments){
 template <typename T>
 void SortDepartment(T method) {}
 
-void ShowDepartments(LinkList<Department> departments)
+void ShowDepartments(LinkList<Department> &departments)
 {
     cout << "Number of departments: " << departments.NumNodes() << endl;
     cout << left << setw(25) << "Department Name" << setw(20) << "Number of employees" << setw(10) << "Budget" << endl;

@@ -109,7 +109,7 @@ void DepartmentManage(LinkList<Department> &departments)
         cout << "\n=========================================================" << endl;
         ShowDepartments(departments);
         cout << "\n=========================================================" << endl;
-        cout << "Command(H for help): ";
+        cout << "Command(H or HH for help): ";
         char command;
         cin >> command;
         if (command == 'H' || command == 'h')
@@ -130,8 +130,6 @@ void DepartmentManage(LinkList<Department> &departments)
                 EmployeeManage(departments.CurData());
             }
         }
-        else if (command == 'Q' || command == 'q')
-            return;
         else if (command == 'D' || command == 'd') {
             string name;
             char choice;
@@ -156,6 +154,8 @@ void DepartmentManage(LinkList<Department> &departments)
                     continue;
             }
         }
+        else if (command == 'Q' || command == 'q')
+            return;
         system("pause");
         system("cls");
     }
