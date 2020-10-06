@@ -9,6 +9,7 @@
 #include "employee.h"
 #include "LinkList.h"
 using namespace std;
+
 class Department
 {
 public:
@@ -36,11 +37,13 @@ public:
         else
             return false;
     }
+
     void ShowEmployees()
     {
         cout << setw(10) << "Name" << setw(10) << "ID" << setw(25) << "Position" << setw(10) << "Work Hour" << setw(10) << "Salary" << endl;
         cout << employees_link_;
     }
+
     LinkList<Employee> &GetEmployees() { return employees_link_; }
     string GetDepartmentName() const { return department_name_; }
 
@@ -48,6 +51,7 @@ public:
     operator string() { return department_name_; }
     operator double() { return budget_; }
     operator int() { return number_of_employees_; }
+
     //Overload
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
