@@ -4,6 +4,8 @@
 #include "employee.h"
 #include "department.h"
 #include "department_runner.h"
+#include<cstdlib>  
+#include<windows.h>
 using namespace std;
 
 void help1();
@@ -91,11 +93,11 @@ void EmployeeManage(Department &department)
         system("cls");
         department.ShowEmployees();
         cout << "Command(H for help): ";
-        char command;
+        string command;
         cin >> command;
-        if (command == 'H' || command == 'h')
+        if (command == "H" || command == "h")
             help2();
-        if (command == 'Q' || command == 'q')
+        if (command == "Q" || command == "q")
             return;
         system("pause");
         system("cls");
@@ -110,11 +112,11 @@ void DepartmentManage(LinkList<Department> &departments)
         ShowDepartments(departments);
         cout << "\n=========================================================" << endl;
         cout << "Command(H for help): ";
-        char command;
+        string command;
         cin >> command;
-        if (command == 'H' || command == 'h')
+        if (command == "H" || command == "h")
             help1();
-        else if (command == 'V' || command == 'v')
+        else if (command == "V" || command == "v")
         {
             string name;
             cin >> name;
@@ -130,7 +132,7 @@ void DepartmentManage(LinkList<Department> &departments)
                 EmployeeManage(departments.CurData());
             }
         }
-        else if (command == 'D' || command == 'd') {
+        else if (command == "D" || command == "d") {
             string name;
             char choice;
             cout << "Please input the name of the department to be delete: " << endl;
@@ -139,7 +141,7 @@ void DepartmentManage(LinkList<Department> &departments)
             if (p == NULL)
             {
                 cout << "Not found!" << endl;
-                continue;
+                //continue;
             }
             else
             {
@@ -148,13 +150,14 @@ void DepartmentManage(LinkList<Department> &departments)
                 if (choice == 'y' || choice == 'Y')
                 {
                     dedelete_department(departments);
-                    continue;
+                    //continue;
                 }
                 else if (choice == 'n' || choice == 'N')
-                    continue;
+                    cout << "nothing happened!" << endl;
+                    //continue;
             }
         }
-        else if (command == 'Q' || command == 'q')
+        else if (command == "Q" || command == "q")
             return;
         system("pause");
         system("cls");
