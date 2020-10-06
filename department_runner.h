@@ -7,10 +7,17 @@
 #include "LinkList.h"
 #include "department.h"
 void MoveEmployee(string from_department_name, int employee_id, string to_department_name);
+
 template <typename T>
-void delete_department(T method) {}
+void dedelete_department(T &departments){
+    cout << "Delete!" << endl;
+    cout << departments.DeleteCurNode() << endl;
+    return;
+}
+
 template <typename T>
 void SortDepartment(T method) {}
+
 void ShowDepartments(LinkList<Department> departments)
 {
     cout << "Number of departments: " << departments.NumNodes() << endl;

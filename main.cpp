@@ -19,8 +19,12 @@ int main()
     //test data
     Department new_department; //Create new department
     departments.Append(new_department);
+    Department new_department0; //Create new department
+    departments.Append(new_department0);
     Employee new_employee;
     departments.CurData().add_employee(new_employee);
+    Employee new_employee0;
+    departments.CurData().add_employee(new_employee0);
     //end
 
     while (true)
@@ -35,7 +39,9 @@ int main()
         else if (choice == 'n' || choice == 'N')
             break;
     }
+
     DepartmentManage(departments);//main part
+
     while (true)
     {
         cout << "Save to the data base (Y/N)";
@@ -100,7 +106,9 @@ void DepartmentManage(LinkList<Department> &departments)
 {
     while (true)
     {
+        cout << "\n=========================================================" << endl;
         ShowDepartments(departments);
+        cout << "\n=========================================================" << endl;
         cout << "Command(H for help): ";
         char command;
         cin >> command;
@@ -124,6 +132,30 @@ void DepartmentManage(LinkList<Department> &departments)
         }
         else if (command == 'Q' || command == 'q')
             return;
+        else if (command == 'D' || command == 'd') {
+            string name;
+            char choice;
+            cout << "Please input the name of the department to be delete: " << endl;
+            cin >> name;
+            Node<Department>* p = departments.Locate(name, true);
+            if (p == NULL)
+            {
+                cout << "Not found!" << endl;
+                continue;
+            }
+            else
+            {
+                cout << "Delete the department (Y/N):" ;
+                cin >> choice;
+                if (choice == 'y' || choice == 'Y')
+                {
+                    dedelete_department(departments);
+                    continue;
+                }
+                else if (choice == 'n' || choice == 'N')
+                    continue;
+            }
+        }
         system("pause");
         system("cls");
     }

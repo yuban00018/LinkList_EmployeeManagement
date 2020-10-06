@@ -5,6 +5,7 @@ void Department::add_employee(const Employee &new_employee)
     number_of_employees_++;
     employees_link_.Append(new_employee); //add information into employees link
 }
+
 void Department::set_department_info(string name, int budget)
 {
     department_name_ = name;
