@@ -10,8 +10,8 @@ void MoveEmployee(string from_department_name, int employee_id, string to_depart
 
 template <typename T>
 void dedelete_department(T &departments){
-    cout << "Delete!" << endl;
     cout << departments.DeleteCurNode() << endl;
+    cout << "Deleted" << endl;
     return;
 }
 

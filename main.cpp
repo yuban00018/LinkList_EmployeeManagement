@@ -135,7 +135,7 @@ void DepartmentManage(LinkList<Department> &departments)
         else if (command == "D" || command == "d") {
             string name;
             char choice;
-            cout << "Please input the name of the department to be delete: " << endl;
+            //cout << "Please input the name of the department to be delete: " << endl;
             cin >> name;
             Node<Department>* p = departments.Locate(name, true);
             if (p == NULL)
