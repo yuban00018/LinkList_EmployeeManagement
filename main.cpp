@@ -87,9 +87,6 @@ void help2()
     cout << "Q - Quit" << endl;
     cout << "type A see further detail or press ENTER to quit help" << endl;
     char further_command;
-    further_command = getchar();
-    if (further_command == 'A')
-        cout << "A (id) (name) (salary) (work_hour) (position) (rate)" << endl;
     cout << endl;
 }
 
@@ -98,7 +95,9 @@ void EmployeeManage(Department &department)
     while (true)
     {
         system("cls");
+        cout << "\n=========================================================" << endl;
         department.ShowEmployees();
+        cout << "\n=========================================================" << endl;
         cout << "Command(H for help): ";
         string command;
         cin >> command;
@@ -156,7 +155,7 @@ void DepartmentManage(LinkList<Department> &departments)
                 cin >> choice;
                 if (choice == 'y' || choice == 'Y')
                 {
-                    dedelete_department(departments);
+                    delete_department(departments);
                     //continue;
                 }
                 else if (choice == 'n' || choice == 'N')
@@ -164,7 +163,7 @@ void DepartmentManage(LinkList<Department> &departments)
                     //continue;
             }
         }
-        else if (command == 'C' || command == 'c')
+        else if (command == "C" || command == "c")
         {
             string name;
             cin >> name;
@@ -185,7 +184,7 @@ void DepartmentManage(LinkList<Department> &departments)
                 departments.CurData().set_department_info(new_name, new_budget);
             }
         }
-        else if (command == 'A' || command == 'a')
+        else if (command == "A" || command == "a")
         {
             string name;
             cin >> name;
@@ -205,35 +204,7 @@ void DepartmentManage(LinkList<Department> &departments)
                      << endl;
             }
         }
-        else if (command == 'D' || command == 'd')
-        {
-            string name;
-            cin >> name;
-            Node<Department> *p = departments.Locate(name, true);
-            if (p == NULL)
-            {
-                cout << "Not found!" << endl
-                     << endl;
-            }
-            else
-            {
-                int method;
-                cin >> method;
-                switch (method)
-                {
-                case 1:
-                    delete_department(ByName);
-                    break;
-                case 2:
-                    delete_department(ByEmployeesNumber);
-                case 3:
-                    delete_department(ByBudget);
-                default:
-                    break;
-                }
-            }
-        }
-        else if (command == 'M' || command == 'm')
+        else if (command == "M" || command == "m")
         {
             string name;
             cin >> name;
@@ -248,11 +219,11 @@ void DepartmentManage(LinkList<Department> &departments)
                 //MoveEmployee();
             }
         }
-        else if (command == 'O' || command == 'o')
+        else if (command == "O" || command == "o")
         {
             //departments.CurData().CheckOverBudget();
         }
-        else if (command == 'S' || command == 's')
+        else if (command == "S" || command == "s")
         {
             int method;
             cin >> method;
@@ -270,7 +241,7 @@ void DepartmentManage(LinkList<Department> &departments)
                 break;
             }
         }
-        else if (command == 'Q' || command == 'q')
+        else if (command == "Q" || command == "q")
             return;
         system("pause");
         system("cls");

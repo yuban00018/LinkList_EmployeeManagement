@@ -9,7 +9,7 @@
 void MoveEmployee(string from_department_name, int employee_id, string to_department_name);
 
 template <typename T>
-void dedelete_department(T &departments){
+void delete_department(T &departments){
     cout << departments.DeleteCurNode() << endl;
     cout << "Deleted" << endl;
     return;
@@ -24,6 +24,7 @@ void ShowDepartments(LinkList<Department> &departments)
     cout << left << setw(25) << "Department Name" << setw(20) << "Number of employees" << setw(10) << "Budget" << endl;
     cout << departments;
 }
+
 void Save(LinkList<Department> departments)
 {
     ofstream out("DataBase.txt");
@@ -34,7 +35,7 @@ void Save(LinkList<Department> departments)
         departments.GoTop();
         Node<Department> *flag = departments.CurNode();
         int number_of_departments = departments.NumNodes();
-        for (int i = 1; i < number_of_departments; i++)
+        for (int i = 1; i <= number_of_departments; i++)
         {
             out << departments.CurData().GetEmployees();
             departments.Go(i);
