@@ -122,7 +122,82 @@ void DepartmentManage(LinkList<Department> &departments)
                 EmployeeManage(departments.CurData());
             }
         }
-        else if (command == 'Q' || command == 'q')
+        else if(command == 'C'|| command =='c')
+        {
+            string name;
+            cin>> name;
+            Node<Department>*p=departments.Locate(name,true);
+            if(p == NULL)
+            {
+                cout<<"Not found!"<<endl
+                     <<endl;
+            }
+            else
+            {
+                departments.CurData().ChangeDepartmentInformation();
+                DepartmentManage(departments.CurData());
+            }
+        }
+        else if (command == 'A'|| command =='a')
+        {
+            string name;
+            cin>>name;
+            Node<Department>*p=departments.Locate(name,true);
+            if(p == NULL)
+            {
+                departments.Curdata().AddNewDepartment();
+                DepartmentManage(departments.CurData());
+            }
+            else
+            {
+                cout<<"There are already duplicated departments!"<<endl
+                     <<endl;
+            }
+
+        }
+        else if (command == 'D'|| command =='d')
+        {
+            string name;
+            cin>>name;
+            Node<Department>*p=departments.Locate(name,true);
+            if(p == NULL)
+            {
+                cout<<"Not found!"<<endl
+                     <<endl;
+            }
+            else
+            {
+                departments.CurData().DeleteDepartment();
+                DepartmentManage(departments.CurData());
+            }
+        }
+        else if (command == 'M'|| command =='m')
+        {
+            string name;
+            cin>>name;
+            Node<Department>*p=departments.Locate(name,true);
+            if(p == NULL)
+            {
+                cout<<"Not found!"<<endl
+                     <<endl;
+            }
+            else
+            {
+                departments.CurData().MoveEmployee();
+                EmployeeManage(departments.CurData());
+            }
+        }
+        else if (command == 'O'|| command =='o')
+        {
+            departments.CurData().CheckDepartmentBudget();
+            DepartmentManage(departments.CurData());
+        }
+        else if (command == 'S'|| command =='s')
+        {
+            departments.CurData().SortDepartment();
+            DepartmentManage(departments.CurData());
+        }
+        else if (command == 'Q'|| command =='q')
             return;
         system("pause");
         system("cls");
