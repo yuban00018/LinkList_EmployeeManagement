@@ -32,6 +32,7 @@ public:
         if (employees_link_.Locate(employee_identity) != NULL) // now the CurNode is what we want
         {
             employees_link_.DeleteCurNode();
+            number_of_employees_ --;
             return true;
         }
         else
