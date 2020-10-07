@@ -10,8 +10,6 @@
 #include "LinkList.h"
 using namespace std;
 
-#define newsearch true
-
 class Department
 {
 public:
@@ -29,17 +27,16 @@ public:
         employees_link_.Sort(method);
     }
     template <typename T>
-    bool delete_employee(T employee_identity)// now just delete employee and decrease the number_of_employees_
+    bool delete_employee(T employee_identity)
     {
-        //if (employees_link_.Locate(employee_identity, newsearch) != NULL ) // now the CurNode is what we want
-        //{
+        if (employees_link_.Locate(employee_identity, true) != NULL) // now the CurNode is what we want
+        {
             employees_link_.DeleteCurNode();
-            number_of_employees_ --;
-            //return true;
-        //}
-        //else
-            //return false;
-            return 0;
+            number_of_employees_--;
+            return true;
+        }
+        else
+            return false;
     }
 
     void ShowEmployees()
