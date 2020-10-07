@@ -22,7 +22,10 @@ public:
                                   rate_(rate) {}
     operator string() { return name_; }
     operator int() { return id_; }
-    operator double() { return salary_; }
+    operator double()
+    {
+        return work_hour_ - 8 > 0 ? (work_hour_ - 8) * salary_ * rate_ + salary_ * 8 : work_hour_ * salary_;
+    }
     inline friend ostream &operator<<(ostream &out, Employee person)
     {
         out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ << setw(10) << person.work_hour_ << setw(10) << person.salary_;
