@@ -8,6 +8,8 @@
 #include<windows.h>
 using namespace std;
 
+#define newsearch true
+
 void help1();
 void help2();
 void EmployeeManage(Department &department);
@@ -110,7 +112,7 @@ void EmployeeManage(Department &department)
             int work_hour;
             string position;
             cin >> name;
-            Node<Employee>* p = department.GetEmployees().Locate(name, true);
+            Node<Employee>* p = department.GetEmployees().Locate(name, newsearch);
             if (p == NULL)
             {
                 cin >> id;
@@ -137,7 +139,7 @@ void EmployeeManage(Department &department)
         {
             int id;
             cin >> id;
-            Node<Employee>* p = department.GetEmployees().Locate(id, true);
+            Node<Employee>* p = department.GetEmployees().Locate(id, newsearch);
             if (p != NULL)
            // if (department.delete_employee(name)) 
             // ignore it!
@@ -197,7 +199,7 @@ void DepartmentManage(LinkList<Department> &departments)
         {
             string name;
             cin >> name;
-            Node<Department> *p = departments.Locate(name, true);
+            Node<Department> *p = departments.Locate(name, newsearch);
             if (p == NULL)
             {
                 cout << "Not found!" << endl
@@ -214,7 +216,7 @@ void DepartmentManage(LinkList<Department> &departments)
             char choice;
             //cout << "Please input the name of the department to be delete: " << endl;
             cin >> name;
-            Node<Department>* p = departments.Locate(name, true);
+            Node<Department>* p = departments.Locate(name, newsearch);
             if (p == NULL)
             {
                 cout << "Not found!" << endl;
@@ -238,7 +240,7 @@ void DepartmentManage(LinkList<Department> &departments)
         {
             string name;
             cin >> name;
-            Node<Department> *p = departments.Locate(name, true);
+            Node<Department> *p = departments.Locate(name, newsearch);
             if (p == NULL)
             {
                 string temp1;
@@ -259,7 +261,7 @@ void DepartmentManage(LinkList<Department> &departments)
         {
             string name;
             cin >> name;
-            Node<Department> *p = departments.Locate(name, true);
+            Node<Department> *p = departments.Locate(name, newsearch);
             if (p == NULL)
             {
                 double budget;
@@ -279,7 +281,7 @@ void DepartmentManage(LinkList<Department> &departments)
         {
             string name;
             cin >> name;
-            Node<Department> *p = departments.Locate(name, true);
+            Node<Department> *p = departments.Locate(name, newsearch);
             if (p == NULL)
             {
                 cout << "Not found!" << endl
