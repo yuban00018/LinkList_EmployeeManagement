@@ -138,25 +138,29 @@ void EmployeeManage(Department &department)
         else if (command == "D" || command == "d")
         {
             int id;
+            char choice;
             cin >> id;
             Node<Employee>* p = department.GetEmployees().Locate(id, newsearch);
             if (p != NULL)
-           // if (department.delete_employee(name)) 
-            // ignore it!
             {
-                department.GetEmployees().DeleteCurNode();
-                cout << "Deleted!" << endl
-                    << endl;
-            }
+                cout << "Delete the employee (Y/N):";
+                cin >> choice;
+                if (choice == 'y' || choice == 'Y')
+                {
+                    department.delete_employee(id);
+                }
+                else if (choice == 'n' || choice == 'N')
+                    cout << "nothing happened!" << endl;
+        }
             else
             {
                 cout << "Not found!" << endl
                     << endl;
             }
         }
+        //  this follow part not finished(SortEmployee)
         else if (command == "S" || command == "s")
         {
-            //department.SortEmployee(method);
             int method;
             cin >> method;
             switch (method)
