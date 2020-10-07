@@ -88,7 +88,6 @@ void help2()
     cout << "S (method) - Sort employee by certain rule" << endl;
     cout << "Q - Quit" << endl;
     cout << "type A see further detail or press ENTER to quit help" << endl;
-    char further_command;
     cout << endl;
 }
 
@@ -148,6 +147,7 @@ void EmployeeManage(Department &department)
                 if (choice == 'y' || choice == 'Y')
                 {
                     department.delete_employee(id);
+                    cout << "Deleted!" << endl;
                 }
                 else if (choice == 'n' || choice == 'N')
                     cout << "nothing happened!" << endl;
@@ -158,7 +158,6 @@ void EmployeeManage(Department &department)
                     << endl;
             }
         }
-        //  this follow part not finished(SortEmployee)
         else if (command == "S" || command == "s")
         {
             int method;
@@ -167,16 +166,20 @@ void EmployeeManage(Department &department)
             {
             case 1:
                 department.SortEmployee(ByName);
+                cout << "Sorted!" << endl;
                 break;
             case 2:
                 department.SortEmployee(ByBudget);
+                cout << "Sorted!" << endl;
                 break;
             case 3:
                 department.SortEmployee(ByEmployeeId);
+                cout << "Sorted!" << endl;
+                break;
             default:
+                cout << "Method not found!" << endl;
                 break;
             }
-            cout << "Sorted!" << endl;
         }
         else if (command == "Q" || command == "q")
             return;
@@ -307,14 +310,19 @@ void DepartmentManage(LinkList<Department> &departments)
             switch (method)
             {
             case 1:
-                SortDepartment(ByName);
+                SortDepartment(ByName, departments);
+                cout << "Sorted!" << endl;
                 break;
             case 2:
-                SortDepartment(ByEmployeesNumber);
+                SortDepartment(ByEmployeesNumber, departments);
+                cout << "Sorted!" << endl;
                 break;
             case 3:
-                SortDepartment(ByBudget);
+                SortDepartment(ByBudget, departments);
+                cout << "Sorted!" << endl;
+                break;
             default:
+                cout << "Method not found!" << endl;
                 break;
             }
         }

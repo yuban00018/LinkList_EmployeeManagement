@@ -16,7 +16,9 @@ void delete_department(T &departments){
 }
 
 template <typename T>
-void SortDepartment(T method) {}
+void SortDepartment(T method, LinkList<Department>& departments) {
+    departments.Sort(method);
+}
 
 void ShowDepartments(LinkList<Department> &departments)
 {
