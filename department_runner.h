@@ -6,7 +6,10 @@
 #include <fstream>
 #include "LinkList.h"
 #include "department.h"
-void MoveEmployee(string from_department_name, int employee_id, string to_department_name);
+void MoveEmployee(int employee_id, string from_department_name, string to_department_name) {
+
+}
+
 
 template <typename T>
 void delete_department(T &departments){
@@ -46,6 +49,12 @@ void Save(LinkList<Department> departments)
         out.close();
     }
 }
-void Load(); //read information from data.txt
 
+// Doing
+void Load(LinkList<Department> departments) //read information from data.txt
+{
+    ifstream infile ("DataBase.txt");
+
+    infile.close();
+}
 #endif

@@ -60,8 +60,15 @@ public:
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
     {
-        out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ << setw(10) << department.budget_;
+        out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ 
+            << setw(10) << department.budget_;
         return out;
+    }
+    //Doing
+    friend istream& operator>>(istream& in, const Department& department)
+    {
+        
+        return in;
     }
 
 private:

@@ -31,6 +31,12 @@ public:
         out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ << setw(10) << person.work_hour_ << setw(10) << person.salary_;
         return out;
     }
+    // Doing
+    inline friend ostream &operator>>(ostream& in, Employee person)
+    {
+
+        return in;
+    }
     void set_rate(double rate)
     {
         rate_ = rate;

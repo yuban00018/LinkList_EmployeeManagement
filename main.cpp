@@ -26,7 +26,7 @@ int main()
     LinkList<Department> departments;
     char choice;
 
-    //test data
+    //testing data
     Department new_department; //Create a new department
     departments.Append(new_department);
     Department new_department0("HR",0); //Create another new department
@@ -43,7 +43,8 @@ int main()
         cin >> choice;
         if (choice == 'y' || choice == 'Y')
         {
-            //Load();
+            // Doing 
+            Load(departments);
             break;
         }
         else if (choice == 'n' || choice == 'N')
@@ -284,11 +285,13 @@ void DepartmentManage(LinkList<Department> &departments)
                      << endl;
             }
         }
+        // Doing
         else if (command == "M" || command == "m")
         {
-            string name;
-            cin >> name;
-            Node<Department> *p = departments.Locate(name, newsearch);
+            int id;
+            string from, to;
+            cin >> id >> from >> to;
+            Node<Department> *p = departments.Locate(id, newsearch);
             if (p == NULL)
             {
                 cout << "Not found!" << endl
@@ -296,7 +299,7 @@ void DepartmentManage(LinkList<Department> &departments)
             }
             else
             {
-                //MoveEmployee();
+                MoveEmployee(id, from , to);
             }
         }
         else if (command == "O" || command == "o")
