@@ -15,9 +15,8 @@ using namespace std;
 class Department
 {
 public:
-    // not finished
-    int CheckOverBudget();
-    int GetTotalSalaries();
+    void CheckOverBudget();
+    double GetTotalSalaries();
 
     Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name), number_of_employees_(0),
                                                                         budget_(budget) {}
@@ -29,7 +28,7 @@ public:
         employees_link_.Sort(method);
     }
     template <typename T>
-    bool delete_employee(T employee_identity)// now just delete employee and decrease the number_of_employees_
+    void delete_employee(T employee_identity)// now just delete employee and decrease the number_of_employees_
     {
         //if (employees_link_.Locate(employee_identity, newsearch) != NULL ) // now the CurNode is what we want
         //{
@@ -39,7 +38,6 @@ public:
         //}
         //else
             //return false;
-            return 0;
     }
 
     void ShowEmployees()
@@ -50,6 +48,7 @@ public:
 
     LinkList<Employee> &GetEmployees() { return employees_link_; }
     string GetDepartmentName() const { return department_name_; }
+    int GetEmployeesNum() const { return number_of_employees_; }
 
     //Type Cast
     operator string() { return department_name_; }
@@ -60,8 +59,15 @@ public:
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
     {
-        out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ << setw(10) << department.budget_;
+        out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ 
+            << setw(10) << department.budget_;
         return out;
+    }
+    //Doing
+    friend istream &operator>>(istream& in, Department& department)
+    {
+        in >> department.department_name_ >> department.number_of_employees_ >> department.budget_ ;
+        return in;
     }
 
 private:

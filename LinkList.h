@@ -134,16 +134,23 @@ void LinkList<T>::GetList(istream &in)			// 从输入设备in获取数据，形成链表。
 {
 //	FreeList();
 	T x;
-	char str[80];
-	int n;
-	in.getline(str, 80, '(');					// 首先忽略'('字符及其可能的所有前导字符
-	in.getline(str, 80);						// 读取字符至行尾
-	n = atoi(str);
+	//char str[80];
+	//int n;
+	//in.getline(str, 80, '(');					// 首先忽略'('字符及其可能的所有前导字符
+	//in.getline(str, 80);						// 读取字符至行尾
+	//n = atoi(str);
+	//Node<T>* p = head; 
+	//in >> p->data ;
+	//x = p->data;
+	in >> x;
+	Append(x);
+	/*
 	for(int i=0; i<n; i++)
 	{
 		in >> x;
 		Append(x);
 	}
+	*/
 	cur_node = head;
 	in.clear();
 	in.sync();

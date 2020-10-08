@@ -28,8 +28,15 @@ public:
     }
     inline friend ostream &operator<<(ostream &out, Employee person)
     {
-        out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ << setw(10) << person.work_hour_ << setw(10) << person.salary_;
+        out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ 
+            << setw(10) << person.work_hour_ << setw(10) << person.salary_;
         return out;
+    }
+    // Doing
+    inline friend istream &operator>>(istream& in, Employee person)
+    {
+        in >> person.name_ >> person.id_ >> person.position_  >> person.work_hour_ >> person.salary_;
+        return in;
     }
     void set_rate(double rate)
     {
