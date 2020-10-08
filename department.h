@@ -10,11 +10,14 @@
 #include "LinkList.h"
 using namespace std;
 
+#define newsearch true
+
 class Department
 {
 public:
-    void CheckOverBudget();
-    double GetTotalSalaries();
+    // not finished
+    int CheckOverBudget();
+    int GetTotalSalaries();
 
     Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name), number_of_employees_(0),
                                                                         budget_(budget) {}
@@ -26,16 +29,17 @@ public:
         employees_link_.Sort(method);
     }
     template <typename T>
-    bool delete_employee(T employee_identity)
+    bool delete_employee(T employee_identity)// now just delete employee and decrease the number_of_employees_
     {
-        if (employees_link_.Locate(employee_identity, true) != NULL) // now the CurNode is what we want
-        {
+        //if (employees_link_.Locate(employee_identity, newsearch) != NULL ) // now the CurNode is what we want
+        //{
             employees_link_.DeleteCurNode();
-            number_of_employees_--;
-            return true;
-        }
-        else
-            return false;
+            number_of_employees_ --;
+            //return true;
+        //}
+        //else
+            //return false;
+            return 0;
     }
 
     void ShowEmployees()
