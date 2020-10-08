@@ -75,10 +75,10 @@ void Load(LinkList<Department> &departments, const string &filename) //read info
         int number_of_departments;
         infile >> number_of_departments;
         departments.GoTop();
-        //infile >> departments;
         Node<Department>* flag = departments.CurNode();
         for (int i = 0; i < number_of_departments; i++) {
-        infile >> departments.CurData();
+        //infile >> departments.CurData();
+        infile >> departments;
         departments.GoBottom();
         }
 
