@@ -220,7 +220,11 @@ void DepartmentManage(LinkList<Department> &departments)
         }
         else if (command == "O" || command == "o")
         {
-            //departments.CurData().CheckOverBudget();
+            cout << "Please enter the name of the department you want to check" <<endl;
+            string name;
+            cin >> name;
+            Node<Department> *p = departments.Locate(name, true);
+            departments.CurData().CheckOverBudget();
         }
         else if (command == "S" || command == "s")
         {
