@@ -70,8 +70,8 @@ void help1()
     cout << "A - Add a new department" << endl;
     cout << "C (name) (newname) (budget) - Change department information" << endl;
     cout << "D (name) - Delete department" << endl;
-    cout << "M (id) (from) (to) - Move employee" << endl;     //没有完成函数定义
-    cout << "O - Check which department over budget" << endl; //没有函数声明与定义
+    cout << "M (id) (from) (to) - Move employee" << endl;
+    cout << "O - Check which department over budget" << endl;
     cout << "Q - Quit" << endl;
     cout << "S (method) - Sort department by certain rule" << endl; //没有声明与定义
     cout << "V (name) - View further details of department" << endl;
