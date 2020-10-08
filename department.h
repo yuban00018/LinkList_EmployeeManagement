@@ -13,9 +13,8 @@ using namespace std;
 class Department
 {
 public:
-    // not finished
     void CheckOverBudget();
-    int GetTotalSalaries();
+    double GetTotalSalaries();
 
     Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name), number_of_employees_(0),
                                                                         budget_(budget) {}

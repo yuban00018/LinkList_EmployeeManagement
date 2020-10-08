@@ -21,12 +21,16 @@ Department &Department::operator=(Department department)
 }
 void Department::CheckOverBudget()
 {
+	if(GetTotalSalaries() - budget_ > 0)
+		cout << "Department : " << department_name_ << " is over budget!" << endl;
+	else
+		cout << "Department : " << department_name_ << " is under budget!" << endl;
+}
+double Department::GetTotalSalaries()
+{
 	Node<Employee> *p = employees_link_.GoTop();
 	double summary_of_salary=0;
 	for(; p != NULL; p = employees_link_.Skip())
 		summary_of_salary += double(employees_link_.CurData());
-	if(summary_of_salary - budget_ > 0)
-		cout << "Department : " << department_name_ << " is over budget!" << endl;
-	else
-		cout << "Department : " << department_name_ << " is under budget!" << endl;
+	return summary_of_salary;
 }
