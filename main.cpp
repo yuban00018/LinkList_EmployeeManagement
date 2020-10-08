@@ -30,15 +30,15 @@ int main()
 
     //testing data
    
-    Department new_department; //Create a new department
-    departments.Append(new_department);
+    //Department new_department; //Create a new department
+    //departments.Append(new_department);
 
     //Department new_department0("HR",0); //Create another new department
     //departments.Append(new_department0);
-    Employee new_employee;
-    departments.CurData().add_employee(new_employee);//Create a new employee 
-    Employee new_employee0(1, "NO_BODY");
-    departments.CurData().add_employee(new_employee0);//Create another new employee
+    //Employee new_employee;
+    //departments.CurData().add_employee(new_employee);//Create a new employee 
+    //Employee new_employee0(1, "NO_BODY");
+    //departments.CurData().add_employee(new_employee0);//Create another new employee
     //end
     
 

@@ -1,1 +1,1 @@
-t  < data.txt > results.txt
+t  < DataBase.txt > results.txt
