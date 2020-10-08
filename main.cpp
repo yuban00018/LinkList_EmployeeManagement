@@ -24,20 +24,23 @@ double BySalary = 0.0;
 string filename = "DataBase.txt";
 
 int main()
-{
+ {
     LinkList<Department> departments;
     char choice;
 
     //testing data
+   
     Department new_department; //Create a new department
     departments.Append(new_department);
-    Department new_department0("HR",0); //Create another new department
-    departments.Append(new_department0);
+
+    //Department new_department0("HR",0); //Create another new department
+    //departments.Append(new_department0);
     Employee new_employee;
     departments.CurData().add_employee(new_employee);//Create a new employee 
     Employee new_employee0(1, "NO_BODY");
     departments.CurData().add_employee(new_employee0);//Create another new employee
     //end
+    
 
     while (true)
     {
@@ -75,7 +78,7 @@ void help1()
     cout << "A (name) (budget)- Add a new department" << endl;
     cout << "C (name) (newname) (budget) - Change department infomation" << endl;
     cout << "D (name) - Delete department" << endl;
-    cout << "M (id) (from) (to) - Move employee" << endl;     //没有完成函数定义
+    cout << "M - Move employee" << endl;     //没有完成函数定义
     cout << "O - Check which department over budget" << endl; //没有函数声明与定义
     cout << "Q - Quit" << endl;
     cout << "S (method) - Sort department by certain rule" << endl; //没有声明与定义
@@ -278,6 +281,8 @@ void DepartmentManage(LinkList<Department> &departments)
                 cin >> budget;
                 Department new_department(name, budget);
                 departments.Append(new_department);
+                cout << "Added!" << endl
+                    << endl;
             }
             else
             {
@@ -290,23 +295,25 @@ void DepartmentManage(LinkList<Department> &departments)
         // Doing
         else if (command == "M" || command == "m")
         {
-            int id;
-            string from, to;
-            cin >> id >> from >> to;
-            Node<Department> *p = departments.Locate(id, newsearch);
+            cout << "Please enter the name of the department you want to operate" << endl;
+            string name;
+            cin >> name;
+            Node<Department>* p = departments.Locate(name, true);
             if (p == NULL)
             {
                 cout << "Not found!" << endl
-                     << endl;
+                    << endl;
             }
             else
-            {
-                MoveEmployee(id, from , to);
-            }
+                MoveEmployee(departments);
         }
         else if (command == "O" || command == "o")
         {
-            //departments.CurData().CheckOverBudget();
+            cout << "Please enter the name of the department you want to check" << endl;
+            string name;
+            cin >> name;
+            Node<Department>* p = departments.Locate(name, true);
+            departments.CurData().CheckOverBudget();
         }
         else if (command == "S" || command == "s")
         {

@@ -28,34 +28,14 @@ public:
     }
     inline friend ostream &operator<<(ostream &out, Employee person)
     {
-        //out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ 
-        //    << setw(10) << person.work_hour_ << setw(10) << person.salary_;
-        out << '\t' << person.name_ << '\t' << person.id_ << '\t' << person.position_
-                << '\t' << person.work_hour_ << '\t' << person.salary_ ;
+        out << setw(10) << person.name_ << setw(10) << person.id_ << setw(25) << person.position_ 
+            << setw(10) << person.work_hour_ << setw(10) << person.salary_;
         return out;
     }
     // Doing
     inline friend istream &operator>>(istream& in, Employee person)
     {
-        char str[100];
-        //cin >> setw(10) >> person.name_ >> setw(10) >> person.id_ >> setw(25) >> person.position_ 
-        //    >> setw(10) >> person.work_hour_ >> setw(10) >> person.salary_;
-        in.getline(str, 100, '\t');
-        person.name_ = str;
-
-        in.getline(str, 100, '\t');
-        person.id_ = atoi(str);
-
-        in.getline(str, 100, '\t');
-        person.position_ = str;
-
-        in.getline(str, 100, '\t');
-        person.work_hour_ = atoi(str);
-
-        in.getline(str, 100, '\n');
-        person.salary_ = atoi(str);
-
-        //person.set_employee_info(); // no function
+        in >> person.name_ >> person.id_ >> person.position_  >> person.work_hour_ >> person.salary_;
         return in;
     }
     void set_rate(double rate)

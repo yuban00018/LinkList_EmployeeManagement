@@ -6,10 +6,24 @@
 #include <fstream>
 #include "LinkList.h"
 #include "department.h"
-void MoveEmployee(int employee_id, string from_department_name, string to_department_name) {
-
+void MoveEmployee(LinkList<Department>& departments)
+{
+    departments.CurData().ShowEmployees();
+    cout << "Pleace enter the name of the employee you want to move" << endl;
+    string name_employee;
+    cin >> name_employee;
+    Node<Employee>* p_employee = departments.CurData().GetEmployees().Locate(name_employee, true);
+    Employee target_employee = departments.CurData().GetEmployees().CurData();
+    departments.CurData().delete_employee(name_employee);
+    cout << "Pleace enter the name of the target department" << endl;
+    string name_target;
+    cin >> name_target;
+    Node<Department>* p_target = departments.Locate(name_target, true);
+    departments.CurData().add_employee(target_employee);
+    cout << "Done!" << endl;
 }
 
+// void set_employee_info();
 
 template <typename T>
 void delete_department(T &departments){
@@ -30,9 +44,9 @@ void ShowDepartments(LinkList<Department> &departments)
     cout << departments;
 }
 
-void Save(LinkList<Department> departments,const string& filename)
+void Save(LinkList<Department> &departments,const string& filename)
 {
-    ofstream out(filename);
+    ofstream out(filename,ios::out);
     if (out.is_open())
     {
         out << departments.NumNodes() << endl;
@@ -51,20 +65,36 @@ void Save(LinkList<Department> departments,const string& filename)
 }
 
 // Doing
-void Load(LinkList<Department> departments, const string &filename) //read information
+void Load(LinkList<Department> &departments, const string &filename) //read information
 {
     ifstream infile (filename);
     if (infile.is_open())
     {
-        int number_of_departments = departments.NumNodes();
+        //infile >> number_of_departments;
+        //int number_of_departments = departments.NumNodes();
+        int number_of_departments;
         infile >> number_of_departments;
         departments.GoTop();
-        infile >> departments;
+        //infile >> departments;
         Node<Department>* flag = departments.CurNode();
-        for (int i = 1; i <= number_of_departments; i++)
+        for (int i = 0; i < number_of_departments; i++) {
+        infile >> departments.CurData();
+        departments.GoBottom();
+        }
+
+        departments.GoTop();
+        flag = departments.CurNode();
+        for (int i = 0; i < number_of_departments; i++)
         {
-            departments.Go(i);
-            departments.CurData().GetEmployees().GetList(infile);
+            int number_of_employees = departments.CurData().GetEmployeesNum();
+                for (int j = 0; j < number_of_employees; j++)
+                {
+                    infile >> departments.CurData().GetEmployees();
+                    departments.CurData().GetEmployees().Go(j);
+                }
+                departments.Go(i);
+            //infile >> departments.CurData().GetEmployees();
+            //departments.Append(departments.CurData());
         }
 
         infile.close();
