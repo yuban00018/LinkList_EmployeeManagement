@@ -60,14 +60,29 @@ public:
     Department &operator=(Department department);
     friend ostream &operator<<(ostream &out, const Department &department)
     {
-        out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ 
-            << setw(10) << department.budget_;
+        //out << setw(25) << department.department_name_ << setw(20) << department.number_of_employees_ 
+        //    << setw(10) << department.budget_;
+        // 插入特定字符，便于读取
+        out << '\t' << department.department_name_ << '\t' << department.number_of_employees_ 
+            << '\t' << department.budget_ << endl;
         return out;
     }
     //Doing
-    friend istream& operator>>(istream& in, const Department& department)
+    friend istream &operator>>(istream& in, Department& department)
     {
-        
+        char str[100];
+        //cin >> '\t' >> department.department_name_ >> '\t' >> department.number_of_employees_
+        //    >> '\t' >> department.budget_ >> endl;
+        in.getline(str, 100, '\t');
+        department.department_name_ = str;
+
+        in.getline(str, 100, '\t');
+        department.number_of_employees_ = atoi(str);
+
+        in.getline(str, 100, '\n');
+        department.budget_ = atoi(str);
+
+        //department.set_department_info();
         return in;
     }
 

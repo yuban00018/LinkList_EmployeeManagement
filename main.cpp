@@ -21,6 +21,8 @@ int ByEmployeesNumber = 0;
 int ByEmployeeId = 0;
 double BySalary = 0.0;
 
+string filename = "DataBase.txt";
+
 int main()
 {
     LinkList<Department> departments;
@@ -44,7 +46,7 @@ int main()
         if (choice == 'y' || choice == 'Y')
         {
             // Doing 
-            Load(departments);
+            Load(departments, filename);
             break;
         }
         else if (choice == 'n' || choice == 'N')
@@ -59,7 +61,7 @@ int main()
         cin >> choice;
         if (choice == 'y' || choice == 'Y')
         {
-            Save(departments);
+            Save(departments, filename);
             break;
         }
         else if (choice == 'n' || choice == 'N')

@@ -30,9 +30,9 @@ void ShowDepartments(LinkList<Department> &departments)
     cout << departments;
 }
 
-void Save(LinkList<Department> departments)
+void Save(LinkList<Department> departments,const string& filename)
 {
-    ofstream out("DataBase.txt");
+    ofstream out(filename);
     if (out.is_open())
     {
         out << departments.NumNodes() << endl;
@@ -51,10 +51,23 @@ void Save(LinkList<Department> departments)
 }
 
 // Doing
-void Load(LinkList<Department> departments) //read information from data.txt
+void Load(LinkList<Department> departments, const string &filename) //read information
 {
-    ifstream infile ("DataBase.txt");
+    ifstream infile (filename);
+    if (infile.is_open())
+    {
+        int number_of_departments = departments.NumNodes();
+        infile >> number_of_departments;
+        departments.GoTop();
+        infile >> departments;
+        Node<Department>* flag = departments.CurNode();
+        for (int i = 1; i <= number_of_departments; i++)
+        {
+            departments.Go(i);
+            departments.CurData().GetEmployees().GetList(infile);
+        }
 
-    infile.close();
+        infile.close();
+    }
 }
 #endif
