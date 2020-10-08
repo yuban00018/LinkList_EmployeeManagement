@@ -1,8 +1,11 @@
-2
-       NO_DEPARTMENT_NAME                   2         0
-                       HR                   0      1000
-   NO_NAME         0               UNASSIGNED         0         0
-   NO_BODY         1               UNASSIGNED         0         0
-   NO_NAME         0               UNASSIGNED         0         0
-   NO_NAME         0               UNASSIGNED         0         0
+5
+                   人事部                   1         0
+                   生产部                   0         0
+                   销售部                   0         0
+                   财务部                   0         0
+                       HR                   3         0
+       yyt         1                      ceo         0         0
+       yyf         0                      cfo         0         0
+       yyh         2                      cto         0         0
+       yyy         3                      cxo         0         0
 -1

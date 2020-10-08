@@ -74,8 +74,9 @@ void Load(LinkList<Department> &departments, const string &filename) //read info
         //int number_of_departments = departments.NumNodes();
         int number_of_departments;
         infile >> number_of_departments;
-        departments.GoTop();
+        departments.GoTop();  
         Node<Department>* flag = departments.CurNode();
+  
         for (int i = 0; i < number_of_departments; i++) {
         //infile >> departments.CurData();
         infile >> departments;
@@ -84,15 +85,21 @@ void Load(LinkList<Department> &departments, const string &filename) //read info
 
         departments.GoTop();
         flag = departments.CurNode();
+        Node<Employee>* flag0; // Flag to see what happended
         for (int i = 0; i < number_of_departments; i++)
         {
+            flag = departments.CurNode();
             int number_of_employees = departments.CurData().GetEmployeesNum();
+            flag0 = departments.CurData().GetEmployees().GoTop();
                 for (int j = 0; j < number_of_employees; j++)
                 {
                     infile >> departments.CurData().GetEmployees();
-                    departments.CurData().GetEmployees().Go(j);
+                    flag0 = departments.CurData().GetEmployees().CurNode();
+                    departments.CurData().GetEmployees().GoBottom();
+                    flag0 = departments.CurData().GetEmployees().CurNode();
                 }
-                departments.Go(i);
+            departments.Go(i+1);
+            flag = departments.CurNode();
             //infile >> departments.CurData().GetEmployees();
             //departments.Append(departments.CurData());
         }
