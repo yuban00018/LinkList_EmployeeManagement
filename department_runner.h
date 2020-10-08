@@ -53,13 +53,13 @@ void MoveEmployee(LinkList<Department> &departments)
     string name_employee;
     cin >> name_employee;
     Node<Employee> *p_employee = departments.CurData().GetEmployees().Locate(name_employee, true);
-    Employee t=departments.CurData().GetEmployees().CurData();
+    Employee target_employee = departments.CurData().GetEmployees().CurData();
     departments.CurData().delete_employee(name_employee);
     cout << "Pleace enter the name of the target department" << endl;
     string name_target;
     cin >> name_target;
     Node<Department> *p_target = departments.Locate(name_target, true);
-    departments.CurData().add_employee(t);
+    departments.CurData().add_employee(target_employee);
     cout << "Done!" << endl;
 }
 #endif
