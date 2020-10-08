@@ -14,7 +14,7 @@ class Department
 {
 public:
     // not finished
-    int CheckOverBudget();
+    void CheckOverBudget();
     int GetTotalSalaries();
 
     Department(string name = "NO_DEPARTMENT_NAME", double budget = 0) : department_name_(name), number_of_employees_(0),
