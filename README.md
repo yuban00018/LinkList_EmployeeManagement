@@ -1,10 +1,10 @@
 # OOPAssignment
-2020fall-OOP(A) team project（LinkList)
+2020 fall-OOP(A) team project（LinkList_EmployeeManagement)
 
-# ATTENTION
+# Attention
 Please Obey Google Style Guide.
 
-# CONTRIBUTOR(in alphabetical order)
+# Contributer(in alphabetical order)
 [Cao Zhuowen](https://github.com/yuban00018)
 
 [Duan Yu](https://github.com/Qeac)
