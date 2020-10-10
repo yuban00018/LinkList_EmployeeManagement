@@ -1,11 +1,37 @@
 5
-                   人事部                   1         0
-                   生产部                   0         0
-                   销售部                   0         0
-                   财务部                   0         0
-                       HR                   3         0
-       yyt         1                      ceo         0         0
-       yyf         0                      cfo         0         0
-       yyh         2                      cto         0         0
-       yyy         3                      cxo         0         0
+                   人事部                   5         23498
+                   培训部                   5         21401
+                财务审计部                   5         17283
+                   销售部                   5         42434
+                   研发部                   5         12487
+                   公关部                  1          23482
+                   采购部                   2         243929
+       yst         211                      HR         8         28
+       syf         130                      HR         12        25
+       yh         142                      HR         8         25
+       ddy         153                      HR         6         25
+        wje         19                      DM         5        35
+        swx         155                     staff      10          25
+        wpn          162                    staff     10           25
+        sky          172                    internship 12          15
+        zcj          160                    internship  9           15
+        skd          123                    DM          8           35
+        wkw          125                    DM          12        35
+        kwz         128                     accounter   12        30
+        wkz           127                    audit       12        30
+        aka         293                       accounter  12       30
+        kwe      295                          accounter  12       30
+        czz       294                        marketing  12 30
+        akq   12 marketing 12 30
+        wke 39 marketing 10 35
+        wkz 83 internship 12 15
+        wy 9 DM 13 35
+        qn 29 researcher 12 30
+        quin 93 researcher 12 31
+        mhw 314 assistant 13 25
+        mwh 391 assistant 13 25
+        za 2 leader 10 35
+        gjr 55 staff 15 40
+        bg 71 staff 15 30
+        bgw 5 DM 12 35
 -1

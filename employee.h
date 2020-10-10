@@ -24,7 +24,7 @@ public:
     operator int() { return id_; }
     operator double()
     {
-        return work_hour_ - 8 > 0 ? (work_hour_ - 8) * salary_ * rate_ + salary_ * 8 : work_hour_ * salary_;
+        return work_hour_ - 8 > 0 ? 24 * ((work_hour_ - 8) * salary_ * rate_ + salary_ * 8 ): 24*(work_hour_ * salary_);
     }
     inline friend ostream &operator<<(ostream &out, Employee &person)
     {
